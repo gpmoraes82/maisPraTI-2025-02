@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react'
 
 function ViaCepFunctional({cep}) {
     const [endereco, setEndereco] = useState("")
+function ViaCepFunctional({cep}) {
+    const [endereco, setEndereco] = useState("")
     const [carregando, setCarregando] = useState(false)
     const [erro, setErro] = useState(null)
 
@@ -11,6 +13,7 @@ function ViaCepFunctional({cep}) {
 
         console.log("useEffect executado (montagem ou atualização do CEP")
 
+        fetch(`https://viacep.com.br/ws/${cep}/json/`)
         fetch(`https://viacep.com.br/ws/${cep}/json/`)
         .then(res => {
             if(!res.ok) throw new Error("Erro na resposta da API")
